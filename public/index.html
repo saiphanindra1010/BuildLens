@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="BuildLens investigates CI failures with Workers AI."
+    />
+    <title>BuildLens — CI failure investigator</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main>
+      <header class="hero">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">B</span>
+          <h1>BuildLens</h1>
+        </div>
+        <p>Turn noisy CI logs into a clear cause, evidence, and next step.</p>
+        <span class="ai-badge"><span aria-hidden="true"></span> Powered by Workers AI</span>
+      </header>
+
+      <section class="workspace">
+        <div class="panel input-panel">
+          <div class="panel-heading">
+            <div>
+              <span class="step">01</span>
+              <h2>CI log</h2>
+            </div>
+            <button id="sample-button" class="text-button" type="button">
+              Use sample
+            </button>
+          </div>
+          <label for="log-input">Paste output from a failed CI job</label>
+          <textarea
+            id="log-input"
+            maxlength="20000"
+            placeholder="npm test&#10;FAIL src/parser.test.ts&#10;Expected: 200&#10;Received: 500"
+          ></textarea>
+          <div class="input-footer">
+            <span id="character-count">0 / 20,000</span>
+            <button id="investigate-button" class="primary" type="button">
+              Investigate <span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="panel result-panel">
+          <div class="panel-heading">
+            <div>
+              <span class="step">02</span>
+              <h2>Diagnosis</h2>
+            </div>
+            <span id="status" class="status idle">Waiting for log</span>
+          </div>
+          <div id="conversation" class="conversation" aria-live="polite">
+            <div class="empty-state">
+              <div class="empty-icon" aria-hidden="true">⌁</div>
+              <strong>Ready to investigate</strong>
+              <p>Your diagnosis will appear here.</p>
+            </div>
+          </div>
+          <form id="chat-form" class="chat-form" hidden>
+            <label class="sr-only" for="message-input">Follow-up question</label>
+            <input
+              id="message-input"
+              maxlength="2000"
+              placeholder="Ask a follow-up question…"
+              autocomplete="off"
+            />
+            <button class="send-button" type="submit" aria-label="Send">
+              →
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
