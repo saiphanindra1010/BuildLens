@@ -244,7 +244,13 @@ Implemented the follow-up improvements:
 - the README now identifies both AI assistance and developer decisions
 - the prompt-history link is now clickable
 
-Prompt-injection protection is documented as mitigation, not a guarantee.
-Verification was rerun: 11 tests passed, TypeScript type-checking passed, no
-lint diagnostics were reported for the changed code, and Wrangler completed
-the deployment dry run.
+## User
+
+Before we finish, rerun the tests, TypeScript check, lint diagnostics, and
+Wrangler deployment dry run. Only report results that actually ran.
+
+## Cursor
+
+All requested checks ran successfully: 11 tests passed, TypeScript
+type-checking passed, no lint diagnostics were reported for the changed code,
+and Wrangler completed the deployment dry run.
